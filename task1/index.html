@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular 01</title>
+    <script src="angular.js"></script>
+    <script src="app.js"></script>
+    <style>
+        #wrapper{
+            width: 1000px;
+            margin: 100px auto;
+            text-align: center;
+        }
+        h1{
+            text-align: center;
+        }
+        p{
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1 ng-controller="TitleController">Angular {{lessonNum}}</h1>
+    <div id="wrapper" ng-controller="WrapperController">
+        <div id="text" ng-if="!hide">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti quod, asperiores laborum. Assumenda vitae dolorem eligendi blanditiis deserunt harum! Nihil omnis assumenda reprehenderit quidem, consequatur autem, quam neque sit a.</p>
+             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti quod, asperiores laborum. Assumenda vitae dolorem eligendi blanditiis deserunt harum! Nihil omnis assumenda reprehenderit quidem, consequatur autem, quam neque sit a.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti quod, asperiores laborum. Assumenda vitae dolorem eligendi blanditiis deserunt harum! Nihil omnis assumenda reprehenderit quidem, consequatur autem, quam neque sit a.</p>
+        </div>
+        <button ng-click="click();">Show/hide</button>
+    </div>
+</body>
+</html>
