@@ -1,5 +1,10 @@
+#wrapper{
+    width: 1200px;
+    margin: 30px auto;
+}
 table {
     width: 100%;
+    margin: 0 0 30px;
 }
 td {
     padding: 0 10px;
@@ -24,27 +29,42 @@ td > label {
 }
 tr.striped td {
     color: silver;
+    text-decoration: line-through;
+}
+form{
+    text-align: center;
+}
+input[type=text]{
+    width: 500px;
+    border: 1px solid #000;
 }
 input[type=text],
 button[type=submit] {
     height: 30px;
     border-radius: 4px;
     padding: 0 10px;
+    display: inline-block;
+    vertical-align: top;
+}
+form .small{
+    width: 100px;
 }
 button[type=submit] {
-    padding: 0 10px;
+    padding: 0 20px;
     color: #fff;
-    background-color: 	#6B8E23;
-    border: 1px solid #6B8E23;
+    background-color: #000;
+    border: none;
+    height: 32px;
+    cursor: pointer;
 }
 button[type=submit]:hover {
-    background-color: #32CD32;
+    opacity: 0.8;
 }
 button[type=submit][disabled] {
     opacity: 0.5;
     color: #757575;
     pointer-events: none;
-    background-color: #ddd;
+    background-color: #ccc;
 }
 button.delete {
     background: none;
@@ -57,4 +77,63 @@ button.delete:hover {
 }
 button:focus {
     outline: none;
+}
+.paging-frame{
+    text-align: center;
+}
+.pagination{
+    text-align: center;
+    margin:0;
+    padding:0;
+    list-style:none;
+    display: inline-block;
+    vertical-align: top;
+}
+.pagination li{
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 10px 10px;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    font-size: 18px;
+    border:1px solid #bbb;
+    color: #000;
+    cursor: pointer;
+}
+.pagination li.active{
+    background: #000;
+    color: #fff;
+}
+.prev, .next{
+    display: inline-block;
+    vertical-align: top;
+    height: 32px;
+    padding: 0 10px;
+    line-height: 18px;
+    font-size: 18px;
+    border:1px solid #bbb;
+    text-decoration: none;
+    color: #000;
+    background: #fff;
+    cursor: pointer;
+    margin: 0 0 10px;
+}
+.prev[disabled], .next[disabled]{
+    cursor: help;
+    opacity: 0.2;
+}
+.pagination-info{
+    text-align: center;
+    margin: 10px 0;
+}
+.table-frame{
+    min-height: 300px;
+}
+tr.first-row  td{
+    background: #000;
+    color: #fff;
+}
+tr.first-row  button.delete{
+    color: #fff;
 }
