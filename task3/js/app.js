@@ -107,29 +107,31 @@
 			}
 
 			$scope.watchCheck = function (){
-				var checkNum = 0;
-				var viewElements = $scope.countPerPage;
+				if($scope.taskList.length){
+					var checkNum = 0;
+					var viewElements = $scope.countPerPage;
 
-				if($scope.currentPage == Math.ceil($scope.taskList.length / $scope.countPerPage -1)){
-					viewElements = ( $scope.taskList.length % $scope.countPerPage );
-					if(viewElements == 0){
-						viewElements = $scope.countPerPage;
-					}
-				}
-				//console.log('num elements on page ' + viewElements);
-
-				for (var i = $scope.offset; i < $scope.offset + viewElements; i++) {
-					if($scope.taskList[i].done == true){
-						checkNum++
-					}
-					if(checkNum == viewElements){
-						//console.log('all check');
-						$scope.selectAll = {
-							value: true
+					if($scope.currentPage == Math.ceil($scope.taskList.length / $scope.countPerPage -1)){
+						viewElements = ( $scope.taskList.length % $scope.countPerPage );
+						if(viewElements == 0){
+							viewElements = $scope.countPerPage;
 						}
-					} else{
-						$scope.selectAll = {
-							value: false
+					}
+					//console.log('num elements on page ' + viewElements);
+
+					for (var i = $scope.offset; i < $scope.offset + viewElements; i++) {
+						if($scope.taskList[i].done == true){
+							checkNum++
+						}
+						if(checkNum == viewElements){
+							//console.log('all check');
+							$scope.selectAll = {
+								value: true
+							}
+						} else{
+							$scope.selectAll = {
+								value: false
+							}
 						}
 					}
 				}
@@ -150,6 +152,7 @@
 					}
 				}
 			}
+			
 
 			// $scope.$watch('numPerPage', function(newVal, oldVal) {
 			// 	$scope.countPerPage = $scope.numPerPage;

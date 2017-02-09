@@ -2,7 +2,7 @@
 <html lang="en" ng-app="myApp">
 <head>
     <meta charset="UTF-8">
-    <title>Angular 02</title>
+    <title>Angular 03</title>
     <script src="node_modules/angular/angular.min.js"></script>
     <script src="js/app.js"></script>
     <link rel="stylesheet" href="styles/main.css">
@@ -29,8 +29,20 @@
                 <table ng-if="taskList && taskList.length">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Done</th>
+                            <th>
+                                <a href="#" ng-click="sortType = 'name'; sortReverse = !sortReverse">
+                                    Name
+                                    <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-down"></span>
+                                    <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-up"></span>
+                                </a>
+                            </th>
+                            <th>
+                                <a href="#" ng-click="sortType = 'done'; sortReverse = !sortReverse">
+                                    Done
+                                    <span ng-show="sortType == 'done' && sortReverse" class="fa fa-caret-down"></span>
+                                    <span ng-show="sortType == 'done' && !sortReverse" class="fa fa-caret-up"></span>
+                                </a>
+                            </th>
                             <th>Delete</th>
                         </tr>
                     </thead>
@@ -40,7 +52,7 @@
                             <td><label><input type="checkbox" ng-model="selectAll.value" ng-click="onAllCheckClick()"></label></td>
                             <td><button class="delete" ng-click="removeTaskAll()">[X]</button></td>
                         </tr>
-                        <tr ng-repeat="task in taskList | limitTo:countPerPage:offset | orderBy:'name':false track by $index " ng-class="{striped: task.done}">
+                        <tr ng-repeat="task in taskList | limitTo:countPerPage:offset | orderBy:sortType:!sortReverse track by $index " ng-class="{striped: task.done}">
                             <td>{{task.name}}</td>
                             <td>
                                 <label><input type="checkbox" ng-model="task.done"></label>
